@@ -1,0 +1,11 @@
+bin/
+obj/
+.git/
+.vs/
+*.user
+*.suo
+*.db
+*.log
+Dockerfile*
+docker-compose*
+node_modules/
