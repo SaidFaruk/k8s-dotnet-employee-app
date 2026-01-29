@@ -1,11 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetApi", "DotnetApi\DotnetApi.csproj", "{D024C97A-1DD3-47C7-963E-0BED09F67B4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "Frontend\Frontend.csproj", "{33097224-7791-46A7-BF0F-D18CDFF5227B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{D5EFFFBC-597F-4A84-A651-5EBB1147E406}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postgres", "postgres", "{66D98A90-CC0A-4EC4-9B04-3262D746B693}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{240BFF79-E433-403D-B201-8FE7A6FE8519}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{E035C7B5-A6D3-4CA0-B856-AD34124E1081}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ingress", "ingress", "{9C05B64E-92A9-424E-9112-B9F2EEBF5E6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +36,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5EFFFBC-597F-4A84-A651-5EBB1147E406} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{66D98A90-CC0A-4EC4-9B04-3262D746B693} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{240BFF79-E433-403D-B201-8FE7A6FE8519} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E035C7B5-A6D3-4CA0-B856-AD34124E1081} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9C05B64E-92A9-424E-9112-B9F2EEBF5E6A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7342E4B-6987-4F75-951C-C5855FBDC971}
