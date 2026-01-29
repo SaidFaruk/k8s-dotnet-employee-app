@@ -1,6 +1,10 @@
-﻿namespace DotnetApi.Features.Employees
+﻿namespace DotnetApi.Features.Employees.Models
 {
-    public class EmployeeDto
-    {
-    }
+    public record EmployeeDto(
+        int Id,
+        string Name,
+        string Department,
+        decimal Salary,
+        DateTime CreatedAt
+    );
 }

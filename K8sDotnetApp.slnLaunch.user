@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "fullStack",
+    "Projects": [
+      {
+        "Path": "DotnetApi\\DotnetApi.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Frontend\\Frontend.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

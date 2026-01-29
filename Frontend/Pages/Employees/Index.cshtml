@@ -1,0 +1,52 @@
+﻿@page
+@model Frontend.Pages.Employees.IndexModel
+@{
+}
+<h2 class="mb-3">👩‍💼 Employees</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered align-middle shadow-sm">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th class="text-end">Salary</th>
+                <th>Created</th>
+                <th style="width:140px;">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model.Employees.Any())
+            {
+                foreach (var e in Model.Employees)
+                {
+                    <tr>
+                        <td>@e.Id</td>
+                        <td class="fw-semibold">@e.Name</td>
+                        <td>
+                            <span class="badge bg-info text-dark">
+                                @e.Department
+                            </span>
+                        </td>
+                        <td class="text-end text-success fw-bold">
+                            @e.Salary.ToString("C")
+                        </td>
+                        <td>
+                            @e.CreatedAt.ToString("dd MMM yyyy HH:mm")
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        No employees found.
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

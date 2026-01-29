@@ -1,0 +1,44 @@
+﻿@page
+@model Frontend.Pages.Employees.CreateEmployeeModel
+@{
+}
+<h2 class="mb-4">➕ Add New Employee</h2>
+
+<form asp-action="Add" method="post" class="card p-4 shadow-sm">
+
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label asp-for="Employee.Name" class="form-label"></label>
+        <input asp-for="Employee.Name" class="form-control" placeholder="Enter full name" />
+        <span asp-validation-for="Employee.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Employee.Department" class="form-label"></label>
+        <select asp-for="Employee.Department" class="form-select">
+            <option value="">Select Department</option>
+            <option>IT</option>
+            <option>HR</option>
+            <option>Finance</option>
+            <option>Marketing</option>
+        </select>
+        <span asp-validation-for="Employee.Department" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Employee.Salary" class="form-label"></label>
+        <input asp-for="Employee.Salary" class="form-control" type="number" step="0.01" placeholder="0.00" />
+        <span asp-validation-for="Employee.Salary" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <a asp-action="Index" class="btn btn-secondary">⬅ Back</a>
+        <button type="submit" class="btn btn-success">💾 Save Employee</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

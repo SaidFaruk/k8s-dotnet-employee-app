@@ -2,7 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddHttpClient("EmployeeApi", client =>
+{
+    var baseUrl = builder.Configuration["Api:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl!);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
