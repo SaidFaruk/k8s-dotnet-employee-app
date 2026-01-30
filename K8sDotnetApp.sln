@@ -10,10 +10,24 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{D5EFFFBC-597F-4A84-A651-5EBB1147E406}"
+	ProjectSection(SolutionItems) = preProject
+		namespace.yaml = namespace.yaml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postgres", "postgres", "{66D98A90-CC0A-4EC4-9B04-3262D746B693}"
+	ProjectSection(SolutionItems) = preProject
+		01-secret.yaml = 01-secret.yaml
+		02-pvc.yaml = 02-pvc.yaml
+		03-statefulset.yaml = 03-statefulset.yaml
+		04-service.yaml = 04-service.yaml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{240BFF79-E433-403D-B201-8FE7A6FE8519}"
+	ProjectSection(SolutionItems) = preProject
+		01-configmap.yaml = 01-configmap.yaml
+		02-deployment.yaml = 02-deployment.yaml
+		03-service.yaml = 03-service.yaml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{E035C7B5-A6D3-4CA0-B856-AD34124E1081}"
 EndProject

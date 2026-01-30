@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: api-migrate
+  namespace: k8sdotnetapp
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: saydovski/dotnetapi:v4   # API image tag'in
+          imagePullPolicy: IfNotPresent
+          args: ["--migrate"]
+          envFrom:
+            - secretRef:
+                name: api-secret
+            - configMapRef:
+                name: api-config
