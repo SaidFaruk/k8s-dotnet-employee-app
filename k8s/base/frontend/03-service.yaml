@@ -8,6 +8,6 @@ spec:
     app: frontend
   ports:
     - name: http
-      port: 80
-      targetPort: 8080
+      port: 80 # servicenin cluster ici erisildiginde kullanacagi port
+      targetPort: 8080 #container icindeki port yani kestrel sunucusunun dinledigii port
   type: ClusterIP
