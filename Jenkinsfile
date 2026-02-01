@@ -216,39 +216,32 @@ pipeline {
       }
     }
 
-    stage("Port-forward frontend (8080:80)") {
-      steps {
-        sshagent(credentials: ["${K3S_CRED}"]) {
-          sh """
-            ssh ${K3S_USER}@${K3S_HOST} '
-              set -e
+stage("Port-forward frontend (8080:80)") {
+  steps {
+    sshagent(credentials: ["${K3S_CRED}"]) {
+      sh """
+        ssh ${K3S_USER}@${K3S_HOST} '
+          set -e
 
-              # svc/frontend hangi namespace'te? otomatik bul
-              NS=\$(sudo k3s kubectl get svc -A | awk '"'"'\$2=="frontend"{print \$1; exit}'"'"')
-              if [ -z "\$NS" ]; then
-                echo "svc/frontend not found in any namespace."
-                sudo k3s kubectl get svc -A
-                exit 1
-              fi
-              echo "Found svc/frontend in namespace: \$NS"
+          NS="k8sdotnetapp"
+          echo "Using namespace: \$NS"
 
-              # 8080 doluysa temizle
-              sudo fuser -k 8080/tcp >/dev/null 2>&1 || true
+          # 8080 doluysa yeni port-forward başlatmayalım
+          if ss -lnt | grep -q ":8080"; then
+            echo "Port 8080 is already in use on the server. Skipping port-forward."
+            exit 0
+          fi
 
-              # background port-forward (pipeline bitse de kalsın)
-              nohup sudo k3s kubectl -n "\$NS" port-forward --address 0.0.0.0 svc/frontend 8080:80 \
-                > /tmp/portforward-8080.log 2>&1 &
+          nohup k3s kubectl -n "\$NS" port-forward --address 0.0.0.0 svc/frontend 8080:80 \
+            > /tmp/portforward-8080.log 2>&1 &
 
-              sleep 2
-              echo "Port-forward started. Last logs:"
-              tail -n 30 /tmp/portforward-8080.log || true
-
-              echo "Listening on 8080:"
-              sudo ss -lntp | grep :8080 || true
-            '
-          """
-        }
-      }
+          sleep 2
+          echo "Port-forward started. Last logs:"
+          tail -n 30 /tmp/portforward-8080.log || true
+        '
+      """
     }
+  }
+}
   }
 }
